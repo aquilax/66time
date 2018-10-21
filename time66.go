@@ -24,7 +24,8 @@ func getSunriseSunset(lat, lon, offset float64, t time.Time) (time.Time, time.Ti
 	return sunrise, sunset, err
 }
 
-func getTime(lat, lon, offset float64, t time.Time) (time.Time, error) {
+// GetTime returns 6/6 time for given location and local time
+func GetTime(lat, lon, offset float64, t time.Time) (time.Time, error) {
 	sunrise, sunset, err := getSunriseSunset(lat, lon, offset, t)
 	if err != nil {
 		return time.Now(), err
