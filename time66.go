@@ -51,7 +51,7 @@ func GetTime(lat, lon, offset float64, t time.Time) (time.Time, error) {
 			return time.Now(), err
 		}
 		// night after sunset
-		// TODO: today's sunset -  next day sunrise
+		// today's sunset -  next day sunrise
 		duration = tsunrise.Sub(sunset)
 		start = sunset
 		restart = time.Date(t.Year(), t.Month(), t.Day(), 18, 0, 0, 0, t.Location())
