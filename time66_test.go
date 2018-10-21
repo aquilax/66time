@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func Test_getTime(t *testing.T) {
+func Test_GetTime(t *testing.T) {
 	loc := time.FixedZone("UTC+2", 2*60*60)
 	type args struct {
 		lat    float64
@@ -45,13 +45,13 @@ func Test_getTime(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := getTime(tt.args.lat, tt.args.lon, tt.args.offset, tt.args.t)
+			got, err := GetTime(tt.args.lat, tt.args.lon, tt.args.offset, tt.args.t)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("getTime() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("GetTime() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("getTime() = %v, want %v", got, tt.want)
+				t.Errorf("GetTime() = %v, want %v", got, tt.want)
 			}
 		})
 	}
