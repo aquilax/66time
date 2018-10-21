@@ -1,7 +1,6 @@
 package time66
 
 import (
-	"math"
 	"time"
 
 	"github.com/kelvins/sunrisesunset"
@@ -63,7 +62,7 @@ func GetTime(lat, lon, offset float64, t time.Time) (time.Time, error) {
 	}
 
 	c := float64(duration.Nanoseconds()) / float64(cycle.Nanoseconds())
-	nanoseconds := time.Duration(math.Round(float64(t.Sub(start).Nanoseconds()) / c))
+	nanoseconds := time.Duration(float64(t.Sub(start).Nanoseconds()) / c)
 	return restart.Add(time.Nanosecond * nanoseconds), nil
 }
 
