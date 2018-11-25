@@ -30,7 +30,6 @@ func GetTime(lat, lon, offset float64, t time.Time) (time.Time, error) {
 	if err != nil {
 		return time.Now(), err
 	}
-	// println(sunset.String())
 	var duration time.Duration
 	var start time.Time
 	var restart time.Time
